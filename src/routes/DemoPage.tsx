@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ModelCard } from "../components/ModelCard";
 import { HfIntakeBanner } from "../components/HfIntakeBanner";
+import { MemoryStatus } from "../components/MemoryStatus";
 import { useDownload } from "../contexts/DownloadContext";
 import { MODELS } from "../data/models";
 
@@ -43,6 +44,8 @@ export function Component() {
           Models cache to your browser. First load is the only download.
         </p>
       </section>
+
+      <MemoryStatus />
     </div>
   );
 }
