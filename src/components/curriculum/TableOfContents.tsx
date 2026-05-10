@@ -39,15 +39,15 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
         <p className="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--color-on-surface-variant)] mb-3">
           On this page
         </p>
-        <ul className="space-y-1.5">
+        <ul className="space-y-0.5 border-l border-[color:var(--color-outline-variant)]">
           {headings.map((h) => (
             <li key={h.id} className={h.level === 3 ? "pl-3" : ""}>
               <a
                 href={`#${h.id}`}
-                className={`block text-sm transition-colors ${
+                className={`block text-sm pl-3 py-1 -ml-px border-l-2 transition-all ${
                   activeId === h.id
-                    ? "text-[color:var(--color-primary)] font-medium"
-                    : "text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)]"
+                    ? "text-[color:var(--color-primary)] font-medium border-[color:var(--color-primary)]"
+                    : "text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)] border-transparent hover:border-[color:var(--color-outline)]"
                 }`}
               >
                 {h.text}
