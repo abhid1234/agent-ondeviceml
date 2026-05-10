@@ -109,14 +109,17 @@ export function ResearchPage() {
   const showSynthesisError = phase === "error" && synthesizeHook.error;
 
   return (
-    <div className="flex flex-col gap-5 h-[calc(100vh-3.5rem-3rem)] min-h-0">
+    <div className="max-w-7xl mx-auto w-full px-6 lg:px-10 py-8 flex flex-col gap-5">
       {/* Header */}
-      <div className="flex-shrink-0 flex items-center justify-between">
+      <div className="flex-shrink-0 flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold" style={{ color: "var(--color-on-surface)" }}>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "var(--color-tertiary)" }}>
+            Live playground
+          </p>
+          <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--color-on-surface)" }}>
             Research Mode
-          </h2>
-          <p className="text-xs mt-0.5" style={{ color: "var(--color-on-surface-variant)" }}>
+          </h1>
+          <p className="text-sm mt-1" style={{ color: "var(--color-on-surface-variant)" }}>
             Plan · Retrieve · Synthesize — fully on-device
           </p>
         </div>
