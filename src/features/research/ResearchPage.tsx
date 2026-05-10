@@ -128,32 +128,18 @@ export function ResearchPage() {
             Plan · Retrieve · Synthesize — fully on-device
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <label
-            className="flex items-center gap-1.5 text-xs cursor-pointer select-none"
-            style={{ color: "var(--color-on-surface-variant)" }}
+        {phase !== "idle" && (
+          <button
+            onClick={reset}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
+            style={{
+              color: "var(--color-on-surface-variant)",
+              backgroundColor: "var(--color-surface-container)",
+            }}
           >
-            <input
-              type="checkbox"
-              checked={autoApprove}
-              onChange={(e) => setAutoApprove(e.target.checked)}
-              className="rounded"
-            />
-            Auto-approve plan
-          </label>
-          {phase !== "idle" && (
-            <button
-              onClick={reset}
-              className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-              style={{
-                color: "var(--color-on-surface-variant)",
-                backgroundColor: "var(--color-surface-container)",
-              }}
-            >
-              New research
-            </button>
-          )}
-        </div>
+            New research
+          </button>
+        )}
       </div>
 
       {/* No-model warning */}
@@ -192,6 +178,8 @@ export function ResearchPage() {
               disabled={isRunning || !currentModel}
               isRunning={isRunning}
               hasModel={!!currentModel}
+              autoApprove={autoApprove}
+              onAutoApproveChange={setAutoApprove}
             />
           </div>
 

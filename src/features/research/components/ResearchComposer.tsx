@@ -5,6 +5,8 @@ interface ResearchComposerProps {
   disabled?: boolean;
   isRunning?: boolean;
   hasModel?: boolean;
+  autoApprove?: boolean;
+  onAutoApproveChange?: (next: boolean) => void;
 }
 
 const EXAMPLE_QUESTIONS = [
@@ -13,7 +15,14 @@ const EXAMPLE_QUESTIONS = [
   "Compare LiteRT.js vs ONNX Runtime Web for browser deployments.",
 ];
 
-export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasModel = true }: ResearchComposerProps) {
+export function ResearchComposer({
+  onSubmit,
+  disabled,
+  isRunning = false,
+  hasModel = true,
+  autoApprove = false,
+  onAutoApproveChange,
+}: ResearchComposerProps) {
   const [question, setQuestion] = useState("");
 
   const handleSubmit = () => {
@@ -63,24 +72,40 @@ export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasMod
       </div>
 
       <div
-        className="flex flex-wrap gap-2 px-4 pb-4"
+        className="flex items-end gap-3 justify-between px-4 pb-4"
         style={{ borderTop: "1px solid var(--color-outline-variant)", paddingTop: "14px" }}
       >
-        {EXAMPLE_QUESTIONS.map((q) => (
-          <button
-            key={q}
-            onClick={() => setQuestion(q)}
-            disabled={disabled}
-            className="text-xs px-3 py-1.5 rounded-full border transition-all hover:bg-[color:var(--color-primary-container)] hover:border-[color:var(--color-primary)] disabled:opacity-40 disabled:hover:bg-[color:var(--color-surface)] truncate max-w-[260px]"
-            style={{
-              borderColor: "var(--color-primary-container)",
-              color: "var(--color-primary)",
-              backgroundColor: "var(--color-surface)",
-            }}
+        <div className="flex flex-wrap gap-2 flex-1 min-w-0">
+          {EXAMPLE_QUESTIONS.map((q) => (
+            <button
+              key={q}
+              onClick={() => setQuestion(q)}
+              disabled={disabled}
+              className="text-xs px-3 py-1.5 rounded-full border transition-all hover:bg-[color:var(--color-primary-container)] hover:border-[color:var(--color-primary)] disabled:opacity-40 disabled:hover:bg-[color:var(--color-surface)] truncate max-w-[260px]"
+              style={{
+                borderColor: "var(--color-primary-container)",
+                color: "var(--color-primary)",
+                backgroundColor: "var(--color-surface)",
+              }}
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+        {onAutoApproveChange && (
+          <label
+            className="flex items-center gap-1.5 text-xs cursor-pointer select-none whitespace-nowrap"
+            style={{ color: "var(--color-on-surface-variant)" }}
           >
-            {q}
-          </button>
-        ))}
+            <input
+              type="checkbox"
+              checked={autoApprove}
+              onChange={(e) => onAutoApproveChange(e.target.checked)}
+              className="rounded"
+            />
+            Auto-approve plan
+          </label>
+        )}
       </div>
     </div>
   );
