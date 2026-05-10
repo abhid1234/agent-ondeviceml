@@ -10,6 +10,7 @@ import { PlanCard } from "./components/PlanCard";
 import { RetrievalDrawer } from "./components/RetrievalDrawer";
 import { AnswerStream } from "./components/AnswerStream";
 import { CitationsSidebar } from "./components/CitationsSidebar";
+import { IdlePreview } from "./components/IdlePreview";
 
 export function ResearchPage() {
   const { currentModel } = useModel();
@@ -182,6 +183,8 @@ export function ResearchPage() {
               onAutoApproveChange={setAutoApprove}
             />
           </div>
+
+          {phase === "idle" && <IdlePreview />}
 
           {/* Plan error */}
           {showPlanError && (
