@@ -15,7 +15,11 @@ export function Component() {
   return (
     <div className="max-w-4xl mx-auto px-6 lg:px-12 py-10">
       <header className="mb-10 pb-6 border-b border-[color:var(--color-outline-variant)]">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[color:var(--color-tertiary)] mb-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[color:var(--color-tertiary)] mb-3 flex items-center gap-2">
+          <span
+            className="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{ backgroundColor: "var(--color-tertiary)" }}
+          />
           Live demo
         </p>
         <h1 className="text-4xl font-bold tracking-tight mb-3">

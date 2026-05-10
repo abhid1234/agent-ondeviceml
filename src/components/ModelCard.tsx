@@ -66,7 +66,7 @@ export function ModelCard({ model, recommended }: ModelCardProps) {
       className={`rounded-2xl border p-5 transition-all bg-[color:var(--color-surface)] ${
         isActive
           ? "border-[color:var(--color-primary)] shadow-md"
-          : "border-[color:var(--color-outline-variant)] hover:border-[color:var(--color-outline)]"
+          : "border-[color:var(--color-outline-variant)] hover:border-[color:var(--color-outline)] hover:-translate-y-0.5 hover:shadow-md"
       }`}
     >
       <div className="flex items-start justify-between mb-2">
@@ -94,12 +94,12 @@ export function ModelCard({ model, recommended }: ModelCardProps) {
       <button
         onClick={handleClick}
         disabled={isDownloading || (isLoading && pendingNav)}
-        className={`w-full px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+        className={`w-full px-4 py-2 rounded-full text-sm font-medium transition-all ${
           isActive
-            ? "bg-[color:var(--color-primary)] text-[color:var(--color-on-primary)] hover:opacity-90"
+            ? "bg-[color:var(--color-primary)] text-[color:var(--color-on-primary)] hover:opacity-90 hover:shadow-md"
             : isDownloading || (isLoading && pendingNav)
             ? "bg-[color:var(--color-surface-container)] text-[color:var(--color-on-surface-variant)] cursor-wait"
-            : "bg-[color:var(--color-primary-container)] text-[color:var(--color-on-primary-container)] hover:bg-[color:var(--color-primary)] hover:text-[color:var(--color-on-primary)]"
+            : "bg-[color:var(--color-primary-container)] text-[color:var(--color-on-primary-container)] hover:bg-[color:var(--color-primary)] hover:text-[color:var(--color-on-primary)] hover:shadow-md"
         }`}
       >
         {buttonLabel}
