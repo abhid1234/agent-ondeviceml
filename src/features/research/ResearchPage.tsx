@@ -114,7 +114,11 @@ export function ResearchPage() {
       {/* Header */}
       <div className="flex-shrink-0 flex items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "var(--color-tertiary)" }}>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] mb-2 flex items-center gap-2" style={{ color: "var(--color-tertiary)" }}>
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
+              style={{ backgroundColor: "var(--color-tertiary)" }}
+            />
             Live playground
           </p>
           <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--color-on-surface)" }}>

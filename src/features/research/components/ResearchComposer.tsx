@@ -40,7 +40,7 @@ export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasMod
           }}
           placeholder="Ask a research question..."
           disabled={disabled}
-          className="w-full resize-none text-sm px-4 py-3 rounded-xl focus:outline-none disabled:opacity-50"
+          className="w-full resize-none text-sm px-4 py-3 rounded-xl outline-none transition-shadow focus:ring-2 focus:ring-[color:var(--color-primary)]/30 focus:border-[color:var(--color-primary)] disabled:opacity-50"
           style={{
             backgroundColor: "var(--color-surface-container)",
             color: "var(--color-on-surface)",
@@ -54,7 +54,7 @@ export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasMod
           <button
             onClick={handleSubmit}
             disabled={!question.trim() || disabled}
-            className="px-4 py-2 rounded-xl text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
             style={{ backgroundColor: "var(--color-primary)", color: "#fff" }}
           >
             {isRunning ? "Running…" : !hasModel ? "Load a model first" : "Start research"}
@@ -71,7 +71,7 @@ export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasMod
             key={q}
             onClick={() => setQuestion(q)}
             disabled={disabled}
-            className="text-xs px-3 py-1.5 rounded-full border transition-colors disabled:opacity-40 truncate max-w-[260px]"
+            className="text-xs px-3 py-1.5 rounded-full border transition-all hover:bg-[color:var(--color-primary-container)] hover:border-[color:var(--color-primary)] disabled:opacity-40 disabled:hover:bg-[color:var(--color-surface)] truncate max-w-[260px]"
             style={{
               borderColor: "var(--color-primary-container)",
               color: "var(--color-primary)",
