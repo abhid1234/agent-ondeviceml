@@ -3,6 +3,8 @@ import { useState } from "react";
 interface ResearchComposerProps {
   onSubmit: (question: string) => void;
   disabled?: boolean;
+  isRunning?: boolean;
+  hasModel?: boolean;
 }
 
 const EXAMPLE_QUESTIONS = [
@@ -11,7 +13,7 @@ const EXAMPLE_QUESTIONS = [
   "Compare LiteRT.js vs ONNX Runtime Web for browser deployments.",
 ];
 
-export function ResearchComposer({ onSubmit, disabled }: ResearchComposerProps) {
+export function ResearchComposer({ onSubmit, disabled, isRunning = false, hasModel = true }: ResearchComposerProps) {
   const [question, setQuestion] = useState("");
 
   const handleSubmit = () => {
@@ -55,14 +57,14 @@ export function ResearchComposer({ onSubmit, disabled }: ResearchComposerProps) 
             className="px-4 py-2 rounded-xl text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ backgroundColor: "var(--color-primary)", color: "#fff" }}
           >
-            {disabled ? "Running…" : "Start research"}
+            {isRunning ? "Running…" : !hasModel ? "Load a model first" : "Start research"}
           </button>
         </div>
       </div>
 
       <div
-        className="flex flex-wrap gap-2 px-4 pb-3"
-        style={{ borderTop: "1px solid var(--color-outline-variant)", paddingTop: "10px" }}
+        className="flex flex-wrap gap-2 px-4 pb-4"
+        style={{ borderTop: "1px solid var(--color-outline-variant)", paddingTop: "14px" }}
       >
         {EXAMPLE_QUESTIONS.map((q) => (
           <button

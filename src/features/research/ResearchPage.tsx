@@ -165,10 +165,15 @@ export function ResearchPage() {
       {phase !== "idle" && phase !== "error" && <PhaseBar phase={phase} />}
 
       {/* Main layout */}
-      <div className="flex gap-5 flex-1 min-h-0">
+      <div className="flex gap-5">
         {/* Left: composer → plan → answer */}
-        <div className="flex-1 flex flex-col gap-4 min-h-0 overflow-y-auto">
-          <ResearchComposer onSubmit={handleSubmit} disabled={isRunning || !currentModel} />
+        <div className="flex-1 flex flex-col gap-4 min-w-0">
+          <ResearchComposer
+            onSubmit={handleSubmit}
+            disabled={isRunning || !currentModel}
+            isRunning={isRunning}
+            hasModel={!!currentModel}
+          />
 
           {/* Plan error */}
           {showPlanError && (
@@ -206,35 +211,20 @@ export function ResearchPage() {
           )}
         </div>
 
-        {/* Right: retrieval + citations */}
-        <div className="w-72 flex-shrink-0 flex flex-col gap-4 overflow-y-auto">
-          {retrieveHook.retrievals.length > 0 && (
-            <RetrievalDrawer retrievals={retrieveHook.retrievals} />
-          )}
-
-          {synthesizeHook.citations.length > 0 && (
-            <CitationsSidebar
-              citations={synthesizeHook.citations}
-              highlightIndex={activeCitation}
-            />
-          )}
-
-          {phase === "idle" && (
-            <div
-              className="flex-1 flex flex-col items-center justify-center gap-3 rounded-2xl p-6 text-center"
-              style={{
-                backgroundColor: "var(--color-surface-container)",
-                color: "var(--color-on-surface-variant)",
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 opacity-30">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-              </svg>
-              <p className="text-sm font-medium">Sources will appear here</p>
-              <p className="text-xs opacity-70">Ask a question to begin</p>
-            </div>
-          )}
-        </div>
+        {/* Right: retrieval + citations — only rendered when there's content to show */}
+        {(retrieveHook.retrievals.length > 0 || synthesizeHook.citations.length > 0) && (
+          <div className="w-72 flex-shrink-0 flex flex-col gap-4">
+            {retrieveHook.retrievals.length > 0 && (
+              <RetrievalDrawer retrievals={retrieveHook.retrievals} />
+            )}
+            {synthesizeHook.citations.length > 0 && (
+              <CitationsSidebar
+                citations={synthesizeHook.citations}
+                highlightIndex={activeCitation}
+              />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
