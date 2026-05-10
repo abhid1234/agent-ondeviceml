@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from "react";
+import { Link } from "react-router";
 import { useModel } from "../../contexts/ModelContext";
 import type { ResearchPhase } from "./types";
 import { usePlan } from "./hooks/usePlan";
@@ -154,10 +155,17 @@ export function ResearchPage() {
       {/* No-model warning */}
       {!currentModel && (
         <div
-          className="flex-shrink-0 rounded-xl px-4 py-3 text-sm"
+          className="flex-shrink-0 rounded-xl px-4 py-3 text-sm flex items-center justify-between gap-4"
           style={{ backgroundColor: "#FEF7E0", border: "1px solid #F9E080", color: "#5F4B00" }}
         >
-          No model loaded. Load a model from the Gallery first.
+          <span>No model loaded. Pick one on the demo page to start.</span>
+          <Link
+            to="/demo"
+            className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors"
+            style={{ backgroundColor: "#5F4B00", color: "#FEF7E0" }}
+          >
+            Load a model →
+          </Link>
         </div>
       )}
 
