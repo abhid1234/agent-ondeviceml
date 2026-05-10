@@ -176,12 +176,14 @@ export function ResearchPage() {
       <div className="flex gap-5">
         {/* Left: composer → plan → answer */}
         <div className="flex-1 flex flex-col gap-4 min-w-0">
-          <ResearchComposer
-            onSubmit={handleSubmit}
-            disabled={isRunning || !currentModel}
-            isRunning={isRunning}
-            hasModel={!!currentModel}
-          />
+          <div className="w-full max-w-3xl">
+            <ResearchComposer
+              onSubmit={handleSubmit}
+              disabled={isRunning || !currentModel}
+              isRunning={isRunning}
+              hasModel={!!currentModel}
+            />
+          </div>
 
           {/* Plan error */}
           {showPlanError && (
