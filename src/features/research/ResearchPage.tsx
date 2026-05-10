@@ -154,18 +154,24 @@ export function ResearchPage() {
 
       {/* No-model warning */}
       {!currentModel && (
-        <div
-          className="flex-shrink-0 rounded-xl px-4 py-3 text-sm flex items-center justify-between gap-4"
-          style={{ backgroundColor: "#FEF7E0", border: "1px solid #F9E080", color: "#5F4B00" }}
-        >
-          <span>No model loaded. Pick one on the demo page to start.</span>
-          <Link
-            to="/demo"
-            className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors"
-            style={{ backgroundColor: "#5F4B00", color: "#FEF7E0" }}
+        <div className="w-full max-w-3xl">
+          <div
+            className="rounded-xl px-4 py-3 text-sm flex items-center justify-between gap-4"
+            style={{
+              backgroundColor: "var(--color-warning-container)",
+              border: "1px solid var(--color-outline-variant)",
+              color: "var(--color-on-surface)",
+            }}
           >
-            Load a model →
-          </Link>
+            <span>No model loaded. Pick one on the demo page to start.</span>
+            <Link
+              to="/demo"
+              className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all hover:-translate-y-0.5 hover:shadow-md"
+              style={{ backgroundColor: "var(--color-warning)", color: "#fff" }}
+            >
+              Load a model →
+            </Link>
+          </div>
         </div>
       )}
 
