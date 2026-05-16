@@ -10,13 +10,13 @@ export function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-[color:var(--color-outline-variant)] bg-[color:var(--color-surface)] sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-2 min-w-0 shrink-0">
             <span className="text-base font-bold tracking-tight">ondeviceml</span>
-            <span className="text-base font-light text-[color:var(--color-on-surface-variant)]">/</span>
-            <span className="text-base font-semibold text-[color:var(--color-primary)]">research</span>
+            <span className="hidden sm:inline text-base font-light text-[color:var(--color-on-surface-variant)]">/</span>
+            <span className="hidden sm:inline text-base font-semibold text-[color:var(--color-primary)]">research</span>
           </Link>
-          <nav className="flex items-center gap-5 text-sm">
+          <nav className="flex items-center gap-3 sm:gap-5 text-sm">
             <Link
               to="/"
               className="text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)] transition-colors"
@@ -32,14 +32,16 @@ export function Layout() {
             <a
               href="https://github.com/abhid1234/agent-ondeviceml"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className="text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)] transition-colors"
             >
               GitHub ↗
             </a>
             <a
               href="https://ondeviceml.space"
-              className="text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)] transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)] transition-colors"
             >
               ondeviceml.space ↗
             </a>
