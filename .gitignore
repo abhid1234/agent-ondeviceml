@@ -10,3 +10,4 @@ dist
 public/blog.html
 public/images/blog/
 .gstack/qa-reports/
+.gstack/
