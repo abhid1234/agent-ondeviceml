@@ -96,7 +96,7 @@ First load downloads the chosen model (~1.5 GB for Qwen). The browser caches it;
 
 ## Acknowledgments
 
-This project sits inside an on-device-ML track I run as a 20% project at Google Cloud, alongside the LiteRT team. The broader bet: the web is the next ML deployment surface, and the path from "model trained on a TPU" to "model running on a user's laptop" gets shorter every quarter.
+The broader bet behind this project: the web is the next ML deployment surface, and the path from "model trained on a TPU" to "model running on a user's laptop" gets shorter every quarter.
 
 Thanks to:
 - The MediaPipe team for Tasks GenAI
@@ -109,4 +109,4 @@ Apache 2.0. Fork it, break it, file bugs.
 
 ## Contact
 
-Built by [Abhi Das](https://github.com/abhid1234) — Strategic Partnerships at Google Cloud. Long-form writing at [abhid.substack.com](https://abhid.substack.com).
+Built by [Abhi Das](https://github.com/abhid1234). Long-form writing at [abhid.substack.com](https://abhid.substack.com).
