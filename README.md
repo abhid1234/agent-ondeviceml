@@ -2,7 +2,7 @@
 
 > A research agent that runs entirely in your browser. Plan → retrieve → synthesize, on a 1.5B model, fully offline after the first download.
 
-**Live:** [agent.ondeviceml.space](https://agent.ondeviceml.space) · **Write-up:** [agent.ondeviceml.space/blog](https://agent.ondeviceml.space/blog) · **Family:** [ondeviceml.space](https://ondeviceml.space) (24+ demos) · [bench.ondeviceml.space](https://bench.ondeviceml.space) (Web AI runtime benchmark)
+**Live:** [agent.ondeviceml.space](https://agent.ondeviceml.space) · **Write-up:** [abhid.substack.com](https://abhid.substack.com/p/i-built-a-research-agent-that-runs) · **Family:** [ondeviceml.space](https://ondeviceml.space) (24+ demos) · [bench.ondeviceml.space](https://bench.ondeviceml.space) (Web AI runtime benchmark)
 
 Most AI assumes the model lives on someone else's GPU. But a 1.5B-parameter model fits inside the browser tab you already have open — it's just smaller than the conversation suggests it should be. This is the proof.
 
@@ -40,7 +40,7 @@ The whole build is broken into self-contained lessons. Each one is a working bui
 | 4   | [Synthesizing with citations](https://agent.ondeviceml.space/lessons/synthesis) | 7 min     | Streaming `[N]` markers, click-to-source jumps, repetition-detector that keeps it honest |
 | 5   | [Putting it together](https://agent.ondeviceml.space/lessons/the-loop) | 5 min     | The phase state machine, error recovery, the demo you can run                          |
 
-Full teardown with diagrams: [agent.ondeviceml.space/blog](https://agent.ondeviceml.space/blog)
+Full teardown: [abhid.substack.com](https://abhid.substack.com/p/i-built-a-research-agent-that-runs) (or the [rich HTML version with diagrams](https://agent.ondeviceml.space/blog))
 
 ## Five things I learned
 
@@ -109,4 +109,4 @@ Apache 2.0. Fork it, break it, file bugs.
 
 ## Contact
 
-Built by [Abhi Das](https://github.com/abhid1234) — Strategic Partnerships at Google Cloud. Long-form writing at [JustCurious](https://justcurious.substack.com).
+Built by [Abhi Das](https://github.com/abhid1234) — Strategic Partnerships at Google Cloud. Long-form writing at [abhid.substack.com](https://abhid.substack.com).
